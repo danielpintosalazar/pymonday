@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Jupyter extensions
+*.ipynb
+
+# Text extensions
+*.txt
+
 # Distribution / packaging
 .Python
 build/
