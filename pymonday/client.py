@@ -1,10 +1,11 @@
 from dataclasses import dataclass, field
 from pymonday._utils import config
+from pymonday._utils import session
 
 
 @dataclass
 class Client:
-    config_path: str = None
 
-    def __post_init__(self):
+    def __init__(self):
         self.config: config.Config = config.read_config()
+        self.session: session.Config = session.read_session()
