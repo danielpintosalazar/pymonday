@@ -2,13 +2,14 @@ import requests
 from pymonday._endpoints import bases
 from pymonday._utils.session import Session
 
-from dataclasses import dataclass, field
+class AccountService(bases.Service):
 
-@dataclass
-class AccountService:
-    session: Session
+    __slots__ = ("session")
 
-    def me():
+    def __init__(self, session: Session):
+        self.session: Session = session
+
+    def me(self):
         query = \
             """
             query {
@@ -19,5 +20,6 @@ class AccountService:
                 }
             }
             """
-
-    pass
+        
+        response = self.session.get("https://google.com")
+        return response
